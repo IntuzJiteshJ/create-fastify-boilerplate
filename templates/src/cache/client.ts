@@ -7,7 +7,9 @@ import Redis from 'ioredis';
 
 const redisUrl = process.env.REDIS_URL ?? 'redis://localhost:6379';
 
-export const redis = new Redis(redisUrl);
+// Type assertion for ESM compatibility with NodeNext moduleResolution
+const RedisConstructor = Redis as new (url: string) => Redis;
+export const redis = new RedisConstructor(redisUrl);
 
 export async function getCached<T>(key: string): Promise<T | null> {
   const raw = await redis.get(key);
