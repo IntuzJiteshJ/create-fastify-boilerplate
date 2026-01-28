@@ -1,0 +1,65 @@
+# <%= projectName %>
+
+A production-ready Fastify API boilerplate with TypeScript, testing, and quality gates.
+
+## Project introduction
+
+Placeholder: describe your API and its purpose.
+
+**Tech stack:** Fastify, TypeScript, Sequelize, PostgreSQL, Vitest<% if (redis) { %>, Redis (caching)<% } %><% if (queue) { %>, BullMQ (background jobs)<% } %>.
+
+## Project structure
+
+```
+src/
+├── app/           # Fastify app, routes, plugins, controllers, services, repositories, schemas, utils
+├── config/        # Environment and app config
+├── database/      # Sequelize init, migrations, models
+<% if (cache) { %>├── cache/         # Redis cache client (when enabled)
+<% } %><% if (queue) { %>├── jobs/          # BullMQ workers and producers (when enabled)
+<% } %>└── index.ts      # Entry point
+tests/             # Vitest tests
+scripts/           # Utility scripts
+```
+
+## Getting started
+
+**Install**
+
+```bash
+npm install
+```
+
+**Run dev**
+
+```bash
+npm run dev
+```
+
+**Build**
+
+```bash
+npm run build
+```
+
+**Test**
+
+```bash
+npm test
+npm run test:watch
+npm run test:coverage
+```
+
+## How to extend
+
+- Add new routes under `src/app/routes/` and register them in `src/app/server.ts`.
+- Add services in `src/app/services/` and repositories in `src/app/repositories/`.
+- Add Sequelize models in `src/database/models/` and migrations in `src/database/migrations/`.
+- Use `src/config/index.ts` for environment-based configuration.
+
+## Quality standards
+
+- **Coverage:** Vitest with minimum thresholds: statements, branches, functions, lines ≥ 70%.
+- **Mutation testing:** StrykerJS with minimum 60% mutation score (intended for nightly CI).
+- **Linting:** ESLint (recommended + TypeScript + Prettier) with zero-warning policy; Prettier for format.
+- **Hooks:** Pre-commit runs lint, typecheck, and format check; pre-push runs `npm audit --audit-level=critical`.

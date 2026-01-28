@@ -1,0 +1,35 @@
+{
+  "name": "create-fastify-boilerplate",
+  "version": "1.0.0",
+  "description": "Scaffold a production-ready Fastify API with testing, quality gates, and CI-ready tooling",
+  "type": "module",
+  "main": "lib/index.js",
+  "bin": "bin/cli.js",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "start": "node bin/cli.js",
+    "dev": "node bin/cli.js"
+  },
+  "keywords": [
+    "fastify",
+    "boilerplate",
+    "scaffold",
+    "cli",
+    "create"
+  ],
+  "author": "",
+  "license": "MIT",
+  "dependencies": {
+    "@inquirer/prompts": "^7.2.0",
+    "chalk": "^5.3.0",
+    "ejs": "^3.1.10",
+    "execa": "^9.5.2"
+  },
+  "files": [
+    "bin",
+    "lib",
+    "templates"
+  ]
+}
