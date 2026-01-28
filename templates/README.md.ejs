@@ -15,7 +15,7 @@ src/
 ├── app/           # Fastify app, routes, plugins, controllers, services, repositories, schemas, utils
 ├── config/        # Environment and app config
 ├── database/      # Sequelize init, migrations, models
-<% if (cache) { %>├── cache/         # Redis cache client (when enabled)
+<% if (redis) { %>├── cache/         # Redis cache client (when enabled)
 <% } %><% if (queue) { %>├── jobs/          # BullMQ workers and producers (when enabled)
 <% } %>└── index.ts      # Entry point
 tests/             # Vitest tests
