@@ -30,7 +30,7 @@ npx create-fastify-boilerplate
 After publishing, anyone can run:
 
 ```bash
-npx create-fastify-boilerplate
+npx github:IntuzJiteshJ/create-fastify-boilerplate
 ```
 
 and get a new Fastify project with validation prompts, optional Redis/BullMQ, Husky, ESLint, Prettier, Vitest, StrykerJS, and a clean `src/` structure.
