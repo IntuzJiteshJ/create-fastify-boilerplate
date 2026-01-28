@@ -1,3 +1,15 @@
 node_modules
 .env
 REQUIREMENTS.md
+.cursor
+.cursorrules
+.vscode
+.DS_Store
+.idea
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env.development
+.env.test
+.env.production
