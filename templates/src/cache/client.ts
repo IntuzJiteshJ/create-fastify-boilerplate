@@ -4,10 +4,14 @@
  */
 
 import Redis from 'ioredis';
+import type { Redis as RedisType } from 'ioredis';
 
 const redisUrl = process.env.REDIS_URL ?? 'redis://localhost:6379';
 
-export const redis = new Redis(redisUrl);
+// Type assertion for ESM compatibility with NodeNext moduleResolution
+// Using 'unknown' first as required by TypeScript for this conversion
+const RedisConstructor = Redis as unknown as new (url: string) => RedisType;
+export const redis = new RedisConstructor(redisUrl);
 
 export async function getCached<T>(key: string): Promise<T | null> {
   const raw = await redis.get(key);
